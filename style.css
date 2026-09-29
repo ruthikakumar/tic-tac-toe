@@ -1,0 +1,343 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #0b0b16;
+    color: white;
+    font-family: Arial, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 420px;
+    padding: 30px;
+
+    text-align: center;
+
+    background: #141426;
+    border: 1px solid #444466;
+    border-radius: 20px;
+
+    box-shadow: 0 0 30px #292957;
+}
+
+h1 {
+    font-size: clamp(25px, 7vw, 32px);
+    letter-spacing: 5px;
+}
+
+.subtitle {
+    margin-top: 5px;
+    color: #8888aa;
+    font-size: 13px;
+    letter-spacing: 3px;
+}
+
+.score-board {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 25px 0;
+    gap: 10px;
+}
+
+.player {
+    flex: 1;
+    padding: 12px 10px;
+
+    background: #1d1d35;
+    border-radius: 10px;
+}
+
+.player span {
+    display: block;
+    font-size: 12px;
+    color: #9999bb;
+}
+
+.player strong {
+    display: block;
+    margin-top: 5px;
+    font-size: 28px;
+}
+
+.vs {
+    font-weight: bold;
+    color: #8888aa;
+}
+
+#status {
+    margin-bottom: 20px;
+
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.board {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.cell {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    background: #1b1b32;
+    border: 1px solid #4a4a70;
+    border-radius: 12px;
+
+    color: white;
+    font-size: clamp(30px, 10vw, 42px);
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.cell:hover {
+    background: #29294a;
+    transform: scale(1.04);
+}
+
+#restart {
+    margin-top: 25px;
+    padding: 12px 30px;
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid #7777aa;
+    border-radius: 8px;
+
+    cursor: pointer;
+    font-size: 14px;
+    letter-spacing: 2px;
+
+    transition: 0.2s;
+}
+
+#restart:hover {
+    background: #29294a;
+    transform: scale(1.05);
+}
+
+
+/* Mobile */
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 12px;
+    }
+
+    .game-container {
+        padding: 20px 15px;
+        border-radius: 15px;
+    }
+
+    .score-board {
+        margin: 20px 0;
+    }
+
+    .player {
+        padding: 10px 5px;
+    }
+
+    .player span {
+        font-size: 10px;
+    }
+
+    .player strong {
+        font-size: 24px;
+    }
+
+    #status {
+        font-size: 13px;
+    }
+
+    .board {
+        gap: 7px;
+    }
+
+    #restart {
+        width: 100%;
+    }
+}
+.cell.winner {
+    background: #30305c;
+    border-color: #aaaaff;
+    box-shadow: 0 0 20px #7777aa;
+    transform: scale(1.05);
+    animation: winnerGlow 0.8s infinite alternate;
+}
+
+@keyframes winnerGlow {
+    from {
+        box-shadow: 0 0 10px #555577;
+    }
+
+    to {
+        box-shadow: 0 0 30px #aaaadd;
+    }
+}
+.cell.x-player {
+    color: #ffffff;
+    text-shadow: 0 0 15px #ffffff;
+}
+
+.cell.o-player {
+    color: #aaaadd;
+    text-shadow: 0 0 15px #aaaadd;
+}
+@media (max-width: 360px) {
+
+    body {
+        padding: 8px;
+    }
+
+    .game-container {
+        padding: 18px 12px;
+    }
+
+    h1 {
+        letter-spacing: 3px;
+    }
+
+    .subtitle {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .player {
+        padding: 8px 4px;
+    }
+
+    .player strong {
+        font-size: 22px;
+    }
+
+    #status {
+        font-size: 12px;
+    }
+
+    .board {
+        gap: 5px;
+    }
+
+    #restart {
+        margin-top: 18px;
+        padding: 10px;
+    }
+}
+.popup {
+    display: none;
+
+    margin-top: 15px;
+    padding: 20px;
+
+    background: #1d1d35;
+    border: 1px solid #7777aa;
+    border-radius: 15px;
+
+    box-shadow: 0 0 25px #292957;
+}
+
+.popup-content h2 {
+    font-size: 22px;
+    letter-spacing: 3px;
+}
+
+.popup-content p {
+    margin: 8px 0 15px;
+    color: #9999bb;
+}
+
+#playAgain {
+    padding: 10px 22px;
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid #7777aa;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+#playAgain:hover {
+    background: #29294a;
+}
+#winnerPopup {
+    border-color: #aaaaff;
+    animation: winnerPopup 0.4s ease;
+}
+
+#winnerMessage {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+@keyframes winnerPopup {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.stat-box {
+    padding: 10px 5px;
+    background: #1b1b32;
+    border-radius: 8px;
+    border: 1px solid #333352;
+}
+
+.stat-box span {
+    display: block;
+    font-size: 9px;
+    color: #8888aa;
+    letter-spacing: 1px;
+}
+
+.stat-box strong {
+    display: block;
+    margin-top: 4px;
+    font-size: 20px;
+}
+
+.round {
+    margin-bottom: 18px;
+    color: #8888aa;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.round span {
+    color: white;
+    font-weight: bold;
+}

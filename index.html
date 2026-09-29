@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Grid - Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="game-container">
+
+        <h1>NEON GRID</h1>
+        <p class="subtitle">TIC TAC TOE // ARENA</p>
+
+        <div class="score-board">
+            <div class="player">
+                <span>PLAYER X</span>
+                <strong id="scoreX">0</strong>
+            </div>
+
+            <div class="vs">VS</div>
+
+            <div class="player">
+                <span>PLAYER O</span>
+                <strong id="scoreO">0</strong>
+            </div>
+        </div>
+        <div class="stats">
+
+    <div class="stat-box">
+        <span>X WINS</span>
+        <strong id="totalX">0</strong>
+    </div>
+
+    <div class="stat-box">
+        <span>DRAWS</span>
+        <strong id="drawCount">0</strong>
+    </div>
+
+    <div class="stat-box">
+        <span>O WINS</span>
+        <strong id="totalO">0</strong>
+    </div>
+
+</div>
+
+<div class="round">
+    ROUND <span id="roundNumber">1</span>
+</div>
+
+        <div id="status">PLAYER X'S TURN</div>
+
+        <div class="board">
+
+            <button class="cell" data-index="0"></button>
+            <button class="cell" data-index="1"></button>
+            <button class="cell" data-index="2"></button>
+
+            <button class="cell" data-index="3"></button>
+            <button class="cell" data-index="4"></button>
+            <button class="cell" data-index="5"></button>
+
+            <button class="cell" data-index="6"></button>
+            <button class="cell" data-index="7"></button>
+            <button class="cell" data-index="8"></button>
+
+        </div>
+        <div id="drawPopup" class="popup">
+    <div class="popup-content">
+        <h2>MATCH DRAW!</h2>
+        <p>No winner this round</p>
+        <button id="playAgain">PLAY AGAIN</button>
+    </div>
+</div>
+<div id="winnerPopup" class="popup">
+    <div class="popup-content">
+        <h2>ROUND WON!</h2>
+        <p id="winnerMessage">PLAYER X WINS!</p>
+        <button id="winnerPlayAgain">PLAY AGAIN</button>
+    </div>
+</div>
+
+        <button id="restart">NEW GAME</button>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
